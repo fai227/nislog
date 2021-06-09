@@ -3,6 +3,7 @@ import Image from "next/image";
 
 // Import Components
 import Header from "../components/header.js";
+import Students from "../components/students.js";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <div>
         <main>
           <Header />
+          <Students />
         </main>
 
         <footer>
