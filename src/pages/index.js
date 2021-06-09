@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 
+// Import Components
+import Header from "../components/header.js";
+
 export default function Home() {
   return (
     <>
@@ -18,14 +21,13 @@ export default function Home() {
         <meta property="og:title" content="NISLAB" />
         <meta property="og:description" content="www KUSA HAERU NISLOG www" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div>
         <main>
-          <h1 className="title">NISLOG</h1>
+          <Header />
         </main>
 
         <footer>
