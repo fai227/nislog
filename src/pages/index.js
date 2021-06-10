@@ -5,7 +5,7 @@ import Image from "next/image";
 import Header from "../components/header.js";
 import Students from "../components/students.js";
 
-export default function Home() {
+export default function Home({ foo }) {
   return (
     <>
       <Head>
@@ -29,7 +29,8 @@ export default function Home() {
       <div>
         <main>
           <Header />
-          <Students />
+          <Students data = { foo } />
+          <p>{ foo }</p>
         </main>
 
         <footer>
@@ -40,4 +41,14 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // const res = await fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=7830060');
+  // const foo = await res.json();
+  // console.log(res);
+  // console.log(foo);
+  const foo = 'This is Data Data Data.';
+
+  return { props: { foo } };
 }

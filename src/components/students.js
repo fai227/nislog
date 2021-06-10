@@ -13,13 +13,4 @@ function Students ({ data })  {
   );
 }
 
-export async function getServerSideProps () {
-  const res = await fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=7830060');
-  const data = await res.json();
-  console.log(res);
-  console.log(data);
-
-  return { props: { data } };
-}
-
 export default Students;
