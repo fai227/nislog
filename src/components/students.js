@@ -1,34 +1,25 @@
 import Image from "next/image";
 
-function Students({ allLogs }) {
+const api_url = process.env.NEXT_PUBLIC_API_URL + "/logs";
+console.log(api_url);
+
+function Students ({ data })  {
   return (
     <section>
-      <p>This is Students component.</p>
-      <p>{ allLogs }</p>
+      <p>Students component</p>
+      <p>{ api_url }</p>
+      <p>{ data }</p>
     </section>
-  )
+  );
 }
 
-Students.getInitialProps = async () => {
-  const res = await fetch(process.env.API_URL + "/logs");
-  const posts = await res.json();
+export async function getServerSideProps () {
+  const res = await fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=7830060');
+  const data = await res.json();
   console.log(res);
-  console.log(posts);
+  console.log(data);
 
-  return {allLogs: posts};
-}
-
-export async function getStaticProps() {
-  const res = await fetch(process.env.API_URL + "/logs");
-  const posts = await res.json();
-  console.log(res);
-  console.log(posts);
-
-  return {
-    props: {
-      posts
-    }
-  };
+  return { props: { data } };
 }
 
 export default Students;
