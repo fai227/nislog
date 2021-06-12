@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix",
-    "format": "prettier --write '**/*.{js,jsx,html,css,json.md}'",
+    "format": "prettier --write '**/*.{js,jsx,html,css,json,md}'",
     "fix": "run-s format lint"
   },
   "dependencies": {
