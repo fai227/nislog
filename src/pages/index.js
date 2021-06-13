@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Student from "../components/student.js";
 
 export async function getStaticProps() {
   const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/logs");
@@ -6,23 +6,34 @@ export async function getStaticProps() {
   const items = body.Items;
   // console.log(items);
 
+  const logs = {};
+  items.map((item) => {
+    if (!logs[item.id]) {
+      logs[item.id] = {};
+      logs[item.id].j_full_name = item.j_full_name;
+      logs[item.id].e_full_name = item.e_full_name;
+      logs[item.id].logs = [];
+    }
+    logs[item.id].logs.push({ data: item.date, count: item.stay_duration });
+  });
+
   return {
     props: {
-      items,
+      logs,
     },
   };
 }
 
-export default function IndexPage({ items }) {
+export default function IndexPage({ logs }) {
   return (
     <main>
       <h1>NISLOG</h1>
 
-      <div>
-        {items.map((item) => (
-          <p key={item.index}>{item.j_full_name}</p>
+      <section>
+        {Object.keys(logs).map((key) => (
+          <Student log={logs[key]} />
         ))}
-      </div>
+      </section>
     </main>
   );
 }
