@@ -1,9 +1,20 @@
-export default function StudentComponens({ log }){
-  console.log(log);
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-  return (
-    <>
-      <p>{log.j_full_name}</p>
-    </>
-  )
+class Student extends Component {
+  render() {
+    const logs = this.props.logs;
+    console.log(logs);
+    return (
+      <>
+        <p>{logs.j_full_name}</p>
+      </>
+    );
+  }
 }
+
+Student.propTypes = {
+  logs: PropTypes.object,
+};
+
+export default Student;
