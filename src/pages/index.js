@@ -3,21 +3,25 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Header from "../components/header.js";
-import Treemap from "../components/treemap.js";
+import Treemap from "../components/charts/treemap.js";
 import Students from "../components/students.js";
-import SampleChart1 from "../components/sampleChart1.js";
+import SampleChart1 from "../components/charts/sampleChart1.js";
 
 class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
       logs: {},
+      treemapSeries: [{ data: [] }],
     };
   }
 
   componentDidMount() {
     axios.get(process.env.REACT_APP_API_URL + "/logs").then((results) => {
       this.formatLogs(results.data.Items);
+    });
+    axios.get(process.env.REACT_APP_API_URL + "/logs?type=treemap").then((results) => {
+      this.setState({ treemapSeries: [{ data: results.data.Items }] });
     });
   }
 
@@ -41,7 +45,7 @@ class Index extends Component {
       <>
         <Header />
         <main>
-          <Treemap />
+          <Treemap series={this.state.treemapSeries} />
           <Students logs={this.state.logs} />
           <SampleChart1 />
         </main>

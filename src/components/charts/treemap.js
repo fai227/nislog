@@ -1,21 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import axios from "axios";
+// import axios from "axios";
 import ReactApexChart from "react-apexcharts";
 
 class Treemap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      series: [{ data: [] }],
       options: {},
     };
-  }
-
-  componentDidMount() {
-    axios.get(process.env.REACT_APP_API_URL + "/logs?type=treemap").then((results) => {
-      this.setState({ series: [{ data: results.data.Items }] });
-    });
   }
 
   render() {
@@ -23,11 +17,15 @@ class Treemap extends Component {
       <>
         <h1>Treemap</h1>
         <div>
-          <ReactApexChart series={this.state.series} options={this.state.options} type="treemap" />
+          <ReactApexChart series={this.props.series} options={this.state.options} type="treemap" />
         </div>
       </>
     );
   }
 }
+
+Treemap.propTypes = {
+  series: PropTypes.array,
+};
 
 export default Treemap;
