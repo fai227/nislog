@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 
 import "./styles/globals.css";
 
-import Index from "./pages/index.js";
+import IndexPage from "./pages/index.js";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index />
+    <IndexPage />
   </React.StrictMode>,
   document.getElementById("root")
 );

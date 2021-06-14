@@ -3,11 +3,9 @@ import PropTypes from "prop-types";
 
 class Student extends Component {
   render() {
-    const logs = this.props.logs;
-    console.log(logs);
     return (
       <>
-        <p>{logs.j_full_name}</p>
+        <p>{this.props.logs.j_full_name}</p>
       </>
     );
   }

@@ -5,12 +5,11 @@ import Student from "../components/student.js";
 
 class Students extends Component {
   render() {
-    const logs = this.props.logs;
     return (
       <section>
-        {Object.keys(logs).map((key) => (
+        {Object.keys(this.props.logs).map((key) => (
           <div key={key}>
-            <Student logs={logs[key]} />
+            <Student logs={this.props.logs[key]} />
           </div>
         ))}
       </section>
