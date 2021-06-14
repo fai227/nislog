@@ -4,7 +4,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <h1>NISLOG</h1>
+        <h1 className="text-center">NISLOG</h1>
       </header>
     );
   }
