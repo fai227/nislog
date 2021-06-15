@@ -8,10 +8,7 @@ class Column extends Component {
     super(props);
 
     this.state = {
-      series: {
-        name: "aaa",
-        data: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-      },
+      series: this.props.series,
       options: {
         plotOptions: {
           bar: {
@@ -21,7 +18,7 @@ class Column extends Component {
           },
         },
         xaxis: {
-          categories: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+          categories: this.props.categories,
         },
         yaxis: {
           title: {
@@ -36,14 +33,15 @@ class Column extends Component {
   }
 
   render() {
+    console.log("state.series:", this.state.series);
+    console.log("state.options:", this.state.options);
     // console.log("Columns component Props.series:", this.props.series);
     // console.log("Columns component Props.categories:", this.props.categories);
     return (
       <>
         <h1>Column chart</h1>
-        <p>{this.props.series.name}</p>
         <div>
-          <ReactApexChart options={this.state.options} series={this.state.series} type="bar" />
+          <ReactApexChart options={this.state.options} series={this.props.series} type="bar" />
         </div>
       </>
     );
