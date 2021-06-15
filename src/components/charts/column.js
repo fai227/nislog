@@ -8,15 +8,7 @@ class Column extends Component {
     const series = {
       series: [this.props.series],
       options: {
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            // columnWidth: "55%",
-            // endingShape: "rounded",
-          },
-        },
         xaxis: { categories: this.props.categories },
-        yaxis: { title: { text: "thousands" } },
         fill: { opacity: 1 },
       },
     };
