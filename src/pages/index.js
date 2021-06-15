@@ -5,6 +5,7 @@ import axios from "axios";
 import Header from "../components/header.js";
 import Treemap from "../components/charts/treemap.js";
 import Heatmap from "../components/charts/heatmap.js";
+import Columns from "../components/charts/columns.js";
 import Students from "../components/students.js";
 
 class Index extends Component {
@@ -55,6 +56,7 @@ class Index extends Component {
         <main>
           <Treemap series={this.state.treemapSeries} />
           <Heatmap series={this.state.heatmapSeries} />
+          <Columns />
           <Students logs={this.state.logs} />
         </main>
       </>
