@@ -10,18 +10,21 @@ class Heatmap extends Component {
       options: {
         dataLabels: { enabled: false },
         colors: ["#008FFB"],
+        chart: {
+          height: "200%",
+        },
       },
     };
   }
 
   render() {
     return (
-      <>
-        <h1>Heatmap</h1>
+      <div>
+        <h1 className="text-white">Heatmap</h1>
         <div>
           <ReactApexChart series={this.props.series} options={this.state.options} type="heatmap" />
         </div>
-      </>
+      </div>
     );
   }
 }

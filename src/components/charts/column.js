@@ -14,12 +14,12 @@ class Column extends Component {
     };
 
     return (
-      <>
-        <h1>{this.props.series.name}</h1>
+      <div>
+        <h1 className="text-white">{this.props.series.name}</h1>
         <div>
           <ReactApexChart series={series.series} options={series.options} type="bar" />
         </div>
-      </>
+      </div>
     );
   }
 }

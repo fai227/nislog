@@ -6,14 +6,11 @@ import Column from "./column.js";
 class Columns extends Component {
   render() {
     return (
-      <>
-        <h1>Column chart section</h1>
+      <div className="grid grid-cols-3">
         {this.props.series.map((item, index) => (
-          <div key={index}>
-            <Column series={this.props.series[index]} categories={this.props.categories} />
-          </div>
+          <Column key={index} series={this.props.series[index]} categories={this.props.categories} />
         ))}
-      </>
+      </div>
     );
   }
 }

@@ -13,12 +13,12 @@ class Treemap extends Component {
 
   render() {
     return (
-      <>
-        <h1>Treemap</h1>
+      <div>
+        <h1 className="text-white">Treemap</h1>
         <div>
           <ReactApexChart series={this.props.series} options={this.state.options} type="treemap" />
         </div>
-      </>
+      </div>
     );
   }
 }

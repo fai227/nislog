@@ -34,14 +34,18 @@ class Index extends Component {
 
   render() {
     return (
-      <>
+      <div className="bg-gray-900 min-h-screen">
         <Header />
         <main>
-          <Treemap series={this.state.treemapSeries} />
-          <Heatmap series={this.state.heatmapSeries} />
-          <Columns series={this.state.columnSeries} categories={this.state.columnCategories} />
+          <div className="container mx-auto">
+            {/* <div className="grid grid-cols-2"> */}
+            <Treemap series={this.state.treemapSeries} />
+            <Heatmap series={this.state.heatmapSeries} />
+            {/* </div> */}
+            <Columns series={this.state.columnSeries} categories={this.state.columnCategories} />
+          </div>
         </main>
-      </>
+      </div>
     );
   }
 }
