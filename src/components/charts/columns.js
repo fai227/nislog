@@ -9,7 +9,9 @@ class Columns extends Component {
       <>
         <h1>Column chart section</h1>
         {this.props.series.map((item, index) => (
-          <Column key={index} series={this.props.series[index]} categories={this.props.categories} />
+          <div key={index}>
+            <Column series={this.props.series[index]} categories={this.props.categories} />
+          </div>
         ))}
       </>
     );

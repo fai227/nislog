@@ -19,25 +19,16 @@ class Index extends Component {
   }
 
   componentDidMount() {
-    // Treemap
-    axios.get(process.env.REACT_APP_API_URL + "/logs?type=treemap").then((results) => {
-      console.log("axios get success! /logs?type=treemap");
-      this.setState({ treemapSeries: [{ data: results.data.Items }] });
-    });
+    this.fetchData();
+  }
 
-    // Heatmap
-    axios.get(process.env.REACT_APP_API_URL + "/logs?type=heatmap").then((results) => {
-      console.log("axios get success! /logs?type=heatmap");
-      this.setState({ heatmapSeries: results.data.Items });
-    });
-
-    // Columnchart
-    axios.get(process.env.REACT_APP_API_URL + "/logs?type=column").then((results) => {
-      console.log("axios get success! /logs?type=column");
-      this.setState({
-        columnSeries: results.data.Items,
-        columnCategories: results.data.Categories,
-      });
+  fetchData() {
+    axios.get(process.env.REACT_APP_API_URL + "/logs").then((results) => {
+      console.log("axios get success! /logs");
+      this.setState({ treemapSeries: [{ data: results.data.treemap }] });
+      this.setState({ heatmapSeries: results.data.heatmap });
+      this.setState({ columnSeries: results.data.column.series });
+      this.setState({ columnCategories: results.data.column.categories });
     });
   }
 
