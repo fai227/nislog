@@ -15,7 +15,6 @@ class Heatmap extends Component {
   }
 
   render() {
-    console.log("Heatmap Props.series:", this.props.series);
     return (
       <>
         <h1>Heatmap</h1>

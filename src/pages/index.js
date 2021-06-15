@@ -15,6 +15,8 @@ class Index extends Component {
       logs: {},
       treemapSeries: [{ data: [] }],
       heatmapSeries: [],
+      columnSeries: [],
+      columnCategories: [],
     };
   }
 
@@ -31,6 +33,14 @@ class Index extends Component {
     // Heatmap
     axios.get(process.env.REACT_APP_API_URL + "/logs?type=heatmap").then((results) => {
       this.setState({ heatmapSeries: results.data.Items });
+    });
+
+    // Columnchart
+    axios.get(process.env.REACT_APP_API_URL + "/logs?type=column").then((results) => {
+      this.setState({
+        columnSeries: results.data.Items,
+        columnCategories: results.data.Categories,
+      });
     });
   }
 
@@ -56,7 +66,7 @@ class Index extends Component {
         <main>
           <Treemap series={this.state.treemapSeries} />
           <Heatmap series={this.state.heatmapSeries} />
-          <Columns />
+          <Columns series={this.state.columnSeries} categories={this.state.columnCategories} />
           <Students logs={this.state.logs} />
         </main>
       </>
