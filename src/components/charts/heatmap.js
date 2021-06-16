@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import ReactApexChart from "react-apexcharts";
+
+import Settings from "../../data/settings.json";
 
 class Heatmap extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Heatmap extends Component {
                 {
                   from: 0.1,
                   to: 18,
-                  color: "#0084b4",
+                  color: Settings.baseColor,
                 },
               ],
             },
