@@ -7,7 +7,21 @@ class Treemap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: {},
+      options: {
+        plotOptions: {
+          treemap: {
+            colorScale: {
+              ranges: [
+                {
+                  from: 0,
+                  to: 100,
+                  color: "#0084b4",
+                },
+              ],
+            },
+          },
+        },
+      },
     };
   }
 
