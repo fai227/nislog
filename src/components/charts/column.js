@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import ReactApexChart from "react-apexcharts";
+
+import Settings from "../../data/settings.json";
 
 class Column extends Component {
   render() {
@@ -15,7 +16,7 @@ class Column extends Component {
                 {
                   from: 0,
                   to: 100,
-                  color: "#0084b4",
+                  color: Settings.baseColor,
                 },
               ],
             },
