@@ -14,8 +14,8 @@ class Column extends Component {
     };
 
     return (
-      <div>
-        <h1 className="text-white">{this.props.series.name}</h1>
+      <div className="m-2 p-6 bg-white">
+        <h1 className="">{this.props.series.name}</h1>
         <div>
           <ReactApexChart series={series.series} options={series.options} type="bar" />
         </div>

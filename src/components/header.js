@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class Header extends Component {
   render() {
     return (
-      <header>
-        <h1 className="text-center text-white">NISLOG</h1>
+      <header className="bg-gray-100 h-20 flex justify-center items-center">
+        <h1 className="">NISLOG</h1>
       </header>
     );
   }

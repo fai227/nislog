@@ -34,7 +34,7 @@ class Index extends Component {
 
   render() {
     return (
-      <div className="bg-gray-900 min-h-screen">
+      <div className="bg-gray-100 min-h-screen">
         <Header />
         <main>
           <div className="container mx-auto">
