@@ -15,7 +15,7 @@ class Column extends Component {
               ranges: [
                 {
                   from: 0,
-                  to: 100,
+                  to: this.props.options.max,
                   color: Settings.baseColor,
                 },
               ],
@@ -23,7 +23,7 @@ class Column extends Component {
           },
         },
         xaxis: { categories: this.props.categories },
-        yaxis: { max: 15 },
+        yaxis: { max: this.props.options.max },
       },
     };
 
@@ -41,6 +41,7 @@ class Column extends Component {
 Column.propTypes = {
   series: PropTypes.object,
   categories: PropTypes.array,
+  options: PropTypes.object,
 };
 
 export default Column;
