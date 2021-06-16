@@ -8,7 +8,7 @@ class Columns extends Component {
     return (
       <div className="grid grid-cols-3">
         {this.props.series.map((item, index) => (
-          <Column key={index} series={this.props.series[index]} categories={this.props.categories} />
+          <Column key={index} series={this.props.series[index]} categories={this.props.categories} options={this.props.options} />
         ))}
       </div>
     );
@@ -18,6 +18,7 @@ class Columns extends Component {
 Columns.propTypes = {
   series: PropTypes.array,
   categories: PropTypes.array,
+  options: PropTypes.object,
 };
 
 export default Columns;
