@@ -8,8 +8,21 @@ class Column extends Component {
     const series = {
       series: [this.props.series],
       options: {
+        plotOptions: {
+          bar: {
+            colors: {
+              ranges: [
+                {
+                  from: 0,
+                  to: 100,
+                  color: "#0084b4",
+                },
+              ],
+            },
+          },
+        },
         xaxis: { categories: this.props.categories },
-        fill: { opacity: 1 },
+        yaxis: { max: 15 },
       },
     };
 

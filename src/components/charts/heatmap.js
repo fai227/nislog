@@ -8,10 +8,18 @@ class Heatmap extends Component {
     super(props);
     this.state = {
       options: {
-        dataLabels: { enabled: false },
-        colors: ["#008FFB"],
-        chart: {
-          height: "200%",
+        plotOptions: {
+          heatmap: {
+            colorScale: {
+              ranges: [
+                {
+                  from: 0.1,
+                  to: 18,
+                  color: "#0084b4",
+                },
+              ],
+            },
+          },
         },
       },
     };
