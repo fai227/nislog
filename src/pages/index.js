@@ -23,7 +23,7 @@ class Index extends Component {
 
   fetchData() {
     this.setState({ isLoading: true });
-    axios.get(process.env.REACT_APP_API_URL + "/logs").then((results) => {
+    axios.get(process.env.REACT_APP_API_URL + "/logs", { headers: { "x-api-key": process.env.REACT_APP_API_KEY } }).then((results) => {
       this.setState({
         treemapItems: results.data.treemap,
         heatmapItems: results.data.heatmap,

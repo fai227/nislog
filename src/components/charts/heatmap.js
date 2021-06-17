@@ -22,12 +22,15 @@ class Heatmap extends Component {
             },
           },
         },
+        legend: {
+          show: false,
+        },
       },
     };
 
     return (
-      <div className="p-6 m-2 bg-white">
-        <h1>Heatmap</h1>
+      <div className="p-2 m-2 bg-white">
+        <p className="text-center">Heatmap（毎日在室時間）</p>
         <div>
           <ReactApexChart series={items.series} options={items.options} type="heatmap" />
         </div>

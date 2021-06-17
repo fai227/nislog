@@ -28,8 +28,8 @@ class Column extends Component {
     };
 
     return (
-      <div className="m-2 p-6 bg-white">
-        <h1 className="">{this.props.series.name}</h1>
+      <div className="m-2 p-2 bg-white">
+        <p className="text-center">{this.props.series.name}</p>
         <div>
           <ReactApexChart series={series.series} options={series.options} type="bar" />
         </div>
