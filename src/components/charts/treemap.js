@@ -12,8 +12,8 @@ class Treemap extends Component {
           colorScale: {
             ranges: [
               {
-                from: this.props.options.min,
-                to: this.props.options.max,
+                from: this.props.items.options.min,
+                to: this.props.items.options.max,
                 color: Settings.baseColor,
               },
             ],
@@ -26,7 +26,7 @@ class Treemap extends Component {
       <div className="p-6 m-2 bg-white">
         <h1 className="">Treemap</h1>
         <div>
-          <ReactApexChart series={this.props.series} options={options} type="treemap" />
+          <ReactApexChart series={this.props.items.series} options={options} type="treemap" />
         </div>
       </div>
     );
@@ -34,8 +34,7 @@ class Treemap extends Component {
 }
 
 Treemap.propTypes = {
-  series: PropTypes.array,
-  options: PropTypes.object,
+  items: PropTypes.object,
 };
 
 export default Treemap;

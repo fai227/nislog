@@ -89,7 +89,7 @@ function getTreemap(data) {
     logsArray.push(logs[key]);
   });
 
-  return { series: logsArray, options: options };
+  return { options: options, series: logsArray };
 }
 
 // heatmap用にフォーマット
@@ -97,7 +97,7 @@ function getHeatmap(data) {
   const DATE_DURATION = 20;
   const logs = {};
   const items = data.Items;
-  const options = { min: 1000000000, max: 0 };
+  const options = { min: 24, max: 0 };
   items.map((item) => {
     if (!logs[item.id]) {
       logs[item.id] = {};
@@ -127,7 +127,7 @@ function getHeatmap(data) {
     logsArray.unshift(logs[key]);
   });
 
-  return { series: logsArray, options: options };
+  return { options: options, series: logsArray };
 }
 
 // column用にフォーマット
@@ -143,6 +143,7 @@ function getColumn(data) {
 
   const logs = {};
   const items = data.Items;
+  const options = { categories: datesArray, min: 24, max: 0 };
   items.map((item) => {
     if (!logs[item.id]) {
       logs[item.id] = {};
@@ -152,7 +153,10 @@ function getColumn(data) {
 
     const foundDateIndex = datesArray.findIndex((date) => date === item.date);
     if (foundDateIndex !== -1 && item.stay_duration) {
-      logs[item.id]["data"][foundDateIndex] = (item.stay_duration / 1000 / 60 / 60).toFixed(1);
+      const stay_duration = (item.stay_duration / 1000 / 60 / 60).toFixed(1);
+      options.min = Math.min(options.min, stay_duration);
+      options.max = Math.max(options.max, stay_duration);
+      logs[item.id]["data"][foundDateIndex] = stay_duration;
     }
   });
 
@@ -161,5 +165,5 @@ function getColumn(data) {
     logsArray.push(logs[key]);
   });
 
-  return { series: logsArray, categories: datesArray };
+  return { options: options, series: logsArray };
 }
