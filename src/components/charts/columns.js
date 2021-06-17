@@ -6,7 +6,7 @@ import Column from "./column.js";
 class Columns extends Component {
   render() {
     return (
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {this.props.items.series.map((item, index) => (
           <Column key={index} series={item} options={this.props.items.options} />
         ))}

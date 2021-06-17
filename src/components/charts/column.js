@@ -23,13 +23,14 @@ class Column extends Component {
           },
         },
         xaxis: { categories: this.props.options.categories },
-        yaxis: { max: this.props.options.max },
+        yaxis: { show: false, max: this.props.options.max },
+        chart: { toolbar: { show: false } },
       },
     };
 
     return (
-      <div className="m-2 p-2 bg-white">
-        <p className="text-center">{this.props.series.name}</p>
+      <div className="p-1 m-1 lg:p-2 lg:m-2 bg-white">
+        <p className="text-center mt-2">{this.props.series.name}</p>
         <div>
           <ReactApexChart series={series.series} options={series.options} type="bar" />
         </div>

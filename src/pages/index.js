@@ -5,6 +5,7 @@ import ReactLoading from "react-loading";
 import Settings from "../data/settings.json";
 
 import Header from "../components/header.js";
+import Footer from "../components/footer.js";
 import Treemap from "../components/charts/treemap.js";
 import Heatmap from "../components/charts/heatmap.js";
 import Columns from "../components/charts/columns.js";
@@ -36,7 +37,7 @@ class Index extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-gray-200 min-h-screen">
           <Header />
           <main className="min-h-screen flex justify-center items-center">
             <ReactLoading type="bubbles" color={Settings.baseColor} />
@@ -45,14 +46,15 @@ class Index extends Component {
       );
     } else {
       return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-gray-200 min-h-screen">
           <Header />
           <main>
-            <div className="container mx-auto">
+            <div className="container mx-auto my-6">
               <Treemap items={this.state.treemapItems} />
               <Heatmap items={this.state.heatmapItems} />
               <Columns items={this.state.columnItems} />
             </div>
+            <Footer />
           </main>
         </div>
       );
