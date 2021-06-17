@@ -35,7 +35,14 @@ class Index extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <ReactLoading type="bubbles" color={Settings.baseColor} height="100" width="100" />;
+      return (
+        <div className="bg-gray-100 min-h-screen">
+          <Header />
+          <main className="min-h-screen flex justify-center items-center">
+            <ReactLoading type="bubbles" color={Settings.baseColor} />
+          </main>
+        </div>
+      );
     } else {
       return (
         <div className="bg-gray-100 min-h-screen">
