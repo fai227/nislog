@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import ReactLoading from "react-loading";
+
+import Settings from "../data/settings.json";
 
 import Header from "../components/header.js";
 import Treemap from "../components/charts/treemap.js";
@@ -10,12 +13,7 @@ class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      treemapSeries: [{ data: [] }],
-      treemapOptions: {},
-      heatmapSeries: [],
-      heatmapOptions: {},
-      columnSeries: [],
-      columnCategories: [],
+      isLoading: true,
     };
   }
 
@@ -24,32 +22,41 @@ class Index extends Component {
   }
 
   fetchData() {
+    this.setState({ isLoading: true });
     axios.get(process.env.REACT_APP_API_URL + "/logs").then((results) => {
-      console.log("axios get success! /logs");
-      this.setState({ treemapSeries: [{ data: results.data.treemap.series }] });
-      this.setState({ treemapOptions: results.data.treemap.options });
-      this.setState({ heatmapSeries: results.data.heatmap.series });
-      this.setState({ heatmapOptions: results.data.heatmap.options });
-      this.setState({ columnSeries: results.data.column.series });
-      this.setState({ columnCategories: results.data.column.categories });
+      this.setState({
+        treemapItems: results.data.treemap,
+        heatmapItems: results.data.heatmap,
+        columnItems: results.data.column,
+        isLoading: false,
+      });
     });
   }
 
   render() {
-    return (
-      <div className="bg-gray-100 min-h-screen">
-        <Header />
-        <main>
-          <div className="container mx-auto">
-            {/* <div className="grid grid-cols-2"> */}
-            <Treemap series={this.state.treemapSeries} options={this.state.treemapOptions} />
-            <Heatmap series={this.state.heatmapSeries} options={this.state.heatmapOptions} />
-            {/* </div> */}
-            <Columns series={this.state.columnSeries} categories={this.state.columnCategories} options={this.state.heatmapOptions} />
-          </div>
-        </main>
-      </div>
-    );
+    if (this.state.isLoading) {
+      return (
+        <div className="bg-gray-100 min-h-screen">
+          <Header />
+          <main className="min-h-screen flex justify-center items-center">
+            <ReactLoading type="bubbles" color={Settings.baseColor} />
+          </main>
+        </div>
+      );
+    } else {
+      return (
+        <div className="bg-gray-100 min-h-screen">
+          <Header />
+          <main>
+            <div className="container mx-auto">
+              <Treemap items={this.state.treemapItems} />
+              <Heatmap items={this.state.heatmapItems} />
+              <Columns items={this.state.columnItems} />
+            </div>
+          </main>
+        </div>
+      );
+    }
   }
 }
 

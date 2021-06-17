@@ -22,7 +22,7 @@ class Column extends Component {
             },
           },
         },
-        xaxis: { categories: this.props.categories },
+        xaxis: { categories: this.props.options.categories },
         yaxis: { max: this.props.options.max },
       },
     };
@@ -40,7 +40,6 @@ class Column extends Component {
 
 Column.propTypes = {
   series: PropTypes.object,
-  categories: PropTypes.array,
   options: PropTypes.object,
 };
 
