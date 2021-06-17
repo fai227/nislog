@@ -30,8 +30,8 @@ class Treemap extends Component {
     };
 
     return (
-      <div className="p-6 m-2 bg-white">
-        <h1 className="">Treemap</h1>
+      <div className="p-2 m-2 bg-white">
+        <p className="text-center">Treemap（累計在室時間）</p>
         <div>
           <ReactApexChart series={items.series} options={items.options} type="treemap" />
         </div>
