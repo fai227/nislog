@@ -6,17 +6,24 @@ import Settings from "../../data/settings.json";
 
 class Treemap extends Component {
   render() {
-    const options = {
-      plotOptions: {
-        treemap: {
-          colorScale: {
-            ranges: [
-              {
-                from: this.props.items.options.min,
-                to: this.props.items.options.max,
-                color: Settings.baseColor,
-              },
-            ],
+    const items = {
+      series: [
+        {
+          data: this.props.items.series,
+        },
+      ],
+      options: {
+        plotOptions: {
+          treemap: {
+            colorScale: {
+              ranges: [
+                {
+                  from: this.props.items.options.min,
+                  to: this.props.items.options.max,
+                  color: Settings.baseColor,
+                },
+              ],
+            },
           },
         },
       },
@@ -26,7 +33,7 @@ class Treemap extends Component {
       <div className="p-6 m-2 bg-white">
         <h1 className="">Treemap</h1>
         <div>
-          <ReactApexChart series={this.props.items.series} options={options} type="treemap" />
+          <ReactApexChart series={items.series} options={items.options} type="treemap" />
         </div>
       </div>
     );

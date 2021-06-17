@@ -17,7 +17,6 @@ class Columns extends Component {
 
 Columns.propTypes = {
   items: PropTypes.object,
-  options: PropTypes.object,
 };
 
 export default Columns;

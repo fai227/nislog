@@ -6,18 +6,20 @@ import Settings from "../../data/settings.json";
 
 class Heatmap extends Component {
   render() {
-    console.log(this.props.items.options);
-    const options = {
-      plotOptions: {
-        heatmap: {
-          colorScale: {
-            ranges: [
-              {
-                from: this.props.items.options.min,
-                to: this.props.items.options.max,
-                color: Settings.baseColor,
-              },
-            ],
+    const items = {
+      series: this.props.items.series,
+      options: {
+        plotOptions: {
+          heatmap: {
+            colorScale: {
+              ranges: [
+                {
+                  from: this.props.items.options.min,
+                  to: this.props.items.options.max,
+                  color: Settings.baseColor,
+                },
+              ],
+            },
           },
         },
       },
@@ -27,7 +29,7 @@ class Heatmap extends Component {
       <div className="p-6 m-2 bg-white">
         <h1>Heatmap</h1>
         <div>
-          <ReactApexChart series={this.props.items.series} options={options} type="heatmap" />
+          <ReactApexChart series={items.series} options={items.options} type="heatmap" />
         </div>
       </div>
     );
