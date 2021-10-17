@@ -1,4 +1,4 @@
-# NIS-Analytics
+# NISLOG
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -74,6 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Create `.env.local` file
 
 ```.env.local
-REACT_APP_API_URL=
-REACT_APP_API_KEY=
+REACT_APP_API_URL=""
+REACT_APP_API_KEY=""
 ```
