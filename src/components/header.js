@@ -5,7 +5,7 @@ class Header extends Component {
     return (
       <header className="sticky top-0 z-40 bg-primary text-white h-16 flex justify-center items-center">
         <h1>
-          <a href="/">NIS-Analytics</a>
+          <a href="/">NISLOG</a>
         </h1>
       </header>
     );

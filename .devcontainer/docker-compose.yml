@@ -1,0 +1,12 @@
+version: '3'
+services:
+  nislog:
+    image: node:lts
+    command: sleep infinity
+    ports:
+      - 8080:8080
+    volumes:
+      - ../:/myapp/nislog:cached
+      - /myapp/nislog/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
