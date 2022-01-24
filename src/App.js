@@ -12,7 +12,13 @@ import Bars from "./components/bars";
 export default function App() {
   const { data, error } = useSWR(Consistants.api_baseurl + "/logs", fetcher);
   if (error || !data) {
-    return <>Loading...</>;
+    return (
+      <div className="h-screen flex items-center">
+        <div className="mx-auto w-[120px]">
+          <img src="/assets/nislog-logo.png" alt="nislog" width={1169} height={1169} />
+        </div>
+      </div>
+    );
   }
 
   return (
