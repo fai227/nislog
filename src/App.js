@@ -11,6 +11,10 @@ import Bars from "./components/bars";
 
 export default function App() {
   const { data, error } = useSWR(Consistants.api_baseurl + "/logs", fetcher);
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+  const validTypes = ["treemap", "heatmap", "bars"];
+
   if (error || !data) {
     return (
       <div className="h-screen flex items-center">
@@ -25,9 +29,19 @@ export default function App() {
     <div className="bg-gray-100 min-h-screen">
       <Header />
       <Container>
-        <Treemap data={data} />
-        <Heatmap data={data} />
-        <Bars data={data} />
+        {validTypes.includes(type) ? (
+          <>
+            {type === "treemap" && <Treemap data={data} />}
+            {type === "heatmap" && <Heatmap data={data} />}
+            {type === "bars" && <Bars data={data} />}
+          </>
+        ) : (
+          <>
+            <Treemap data={data} />
+            <Heatmap data={data} />
+            <Bars data={data} />
+          </>
+        )}
       </Container>
       <Footer />
     </div>
