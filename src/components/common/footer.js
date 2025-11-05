@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="h-12 flex justify-center items-center">
       <Container>
         <p className="text-center">
-          <small>&copy; 2022 NISLAB.</small>
+          <small>&copy; 2025 NISLAB.</small>
         </p>
       </Container>
     </footer>

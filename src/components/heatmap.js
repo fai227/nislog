@@ -50,7 +50,7 @@ export default function Heatmap({ data }) {
 
   return (
     <div className="p-1 mx-1 lg:p-2 lg:mx-2 my-6 bg-white">
-      <p className="text-center mt-4">Heatmap</p>
+      <h2 className="text-center mt-4 text-xl">Heatmap</h2>
       <Chart series={series} options={options} type="heatmap" />
     </div>
   );

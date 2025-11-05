@@ -43,7 +43,7 @@ export default function Treemap({ data }) {
 
   return (
     <div className="p-1 mx-1 lg:p-2 lg:mx-2 my-6 bg-white">
-      <p className="text-center mt-4">Treemap（累計在室時間）</p>
+      <h2 className="text-center mt-4 text-xl">Treemap（累計在室時間）</h2>
       <Chart series={series} options={options} type="treemap" />
     </div>
   );
